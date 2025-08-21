@@ -20,7 +20,7 @@ import board
 SENDER_EMAIL = os.environ.get('SENDER_EMAIL', "rajputpraful791@gmail.com")
 RECEIVER_EMAIL = os.environ.get('RECEIVER_EMAIL', "reetakrana65@gmail.com")
 EMAIL_PASSWORD = os.environ.get('EMAIL_PASSWORD', "tehj edww iiqu cwgy")  # Gmail App Password recommended
-OPENWEATHER_API_KEY = os.environ.get('OPENWEATHER_API_KEY', 'REPLACE_WITH_YOUR_OPENWEATHER_KEY')
+OPENWEATHER_API_KEY = os.environ.get('OPENWEATHER_API_KEY','http://api.openweathermap.org/data/2.5/weather')
 
 # Hardware config
 DHT_GPIO = os.environ.get('DHT_GPIO', 'GPIO17')  # DHT22 pin, e.g., GPIO17
