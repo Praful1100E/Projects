@@ -1,0 +1,151 @@
+"""
+DSA in Python - 10 Questions with Solutions
+Author: Praful Rajput
+"""
+
+# ------------------------------
+# Q1. Reverse a String
+# ------------------------------
+def reverse_string(s: str) -> str:
+    return s[::-1]
+
+print("Q1. Reverse String:", reverse_string("hello"))
+
+
+# ------------------------------
+# Q2. Find Factorial (Recursion)
+# ------------------------------
+def factorial(n: int) -> int:
+    if n == 0 or n == 1:
+        return 1
+    return n * factorial(n-1)
+
+print("Q2. Factorial of 5:", factorial(5))
+
+
+# ------------------------------
+# Q3. Find Maximum Element in List
+# ------------------------------
+def find_max(arr: list) -> int:
+    maximum = arr[0]
+    for num in arr:
+        if num > maximum:
+            maximum = num
+    return maximum
+
+print("Q3. Max Element:", find_max([2, 8, 5, 1, 9, 7]))
+
+
+# ------------------------------
+# Q4. Check Palindrome
+# ------------------------------
+def is_palindrome(s: str) -> bool:
+    return s == s[::-1]
+
+print("Q4. Is Palindrome (racecar):", is_palindrome("racecar"))
+
+
+# ------------------------------
+# Q5. Fibonacci Series (DP)
+# ------------------------------
+def fibonacci(n: int) -> list:
+    dp = [0, 1]
+    for i in range(2, n):
+        dp.append(dp[i-1] + dp[i-2])
+    return dp[:n]
+
+print("Q5. Fibonacci (first 7):", fibonacci(7))
+
+
+# ------------------------------
+# Q6. Linear Search
+# ------------------------------
+def linear_search(arr: list, target: int) -> int:
+    for i in range(len(arr)):
+        if arr[i] == target:
+            return i
+    return -1
+
+print("Q6. Linear Search 7 in [1,3,5,7,9]:", linear_search([1,3,5,7,9], 7))
+
+
+# ------------------------------
+# Q7. Binary Search (Sorted Array)
+# ------------------------------
+def binary_search(arr: list, target: int) -> int:
+    low, high = 0, len(arr)-1
+    while low <= high:
+        mid = (low + high)//2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+    return -1
+
+print("Q7. Binary Search 15 in [1,5,9,15,20]:", binary_search([1,5,9,15,20], 15))
+
+
+# ------------------------------
+# Q8. Count Frequency of Elements
+# ------------------------------
+def count_frequency(arr: list) -> dict:
+    freq = {}
+    for item in arr:
+        freq[item] = freq.get(item, 0) + 1
+    return freq
+
+print("Q8. Frequency Count:", count_frequency([1,2,2,3,3,3,4,4,4,4]))
+
+
+# ------------------------------
+# Q9. Stack Implementation
+# ------------------------------
+class Stack:
+    def __init__(self):
+        self.stack = []
+    
+    def push(self, val):
+        self.stack.append(val)
+    
+    def pop(self):
+        if not self.is_empty():
+            return self.stack.pop()
+        return None
+    
+    def peek(self):
+        if not self.is_empty():
+            return self.stack[-1]
+        return None
+    
+    def is_empty(self):
+        return len(self.stack) == 0
+
+s = Stack()
+s.push(10); s.push(20); s.push(30)
+print("Q9. Stack Pop:", s.pop(), "Peek:", s.peek())
+
+
+# ------------------------------
+# Q10. Queue Implementation
+# ------------------------------
+from collections import deque
+class Queue:
+    def __init__(self):
+        self.q = deque()
+    
+    def enqueue(self, val):
+        self.q.append(val)
+    
+    def dequeue(self):
+        if not self.is_empty():
+            return self.q.popleft()
+        return None
+    
+    def is_empty(self):
+        return len(self.q) == 0
+
+q = Queue()
+q.enqueue(1); q.enqueue(2); q.enqueue(3)
+print("Q10. Queue Dequeue:", q.dequeue(), "Next:", q.dequeue())
